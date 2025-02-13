@@ -1,6 +1,10 @@
+import java.awt.Color;
+import java.awt.Font;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame; //Importación de la clase JFrame
 import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 
 public class FrmJuego extends JFrame { //JFrame es una clase de java heredada por FrmJuego
@@ -40,11 +44,64 @@ public class FrmJuego extends JFrame { //JFrame es una clase de java heredada po
         //--- ETIQUETA PARA EL TITULO DE LOS LANZAMIENTOS ---//
         JLabel lblTitulo1 = new JLabel ("Lanzamientos");
         lblTitulo1.setBounds(50 + 2*imagen.getIconWidth(), 10, 100, 25);
+        lblTitulo1.setHorizontalAlignment(SwingConstants.CENTER); //Centrar el titulo, "SwingConstants" es la instruccioón que sirve para definir la horientacion del texto
         getContentPane().add(lblTitulo1);
 
         JLabel lblTitulo2 = new JLabel ("Cenas");
         lblTitulo2.setBounds(160 + 2*imagen.getIconWidth(), 10, 100, 25);
+        lblTitulo2.setHorizontalAlignment(SwingConstants.CENTER); 
         getContentPane().add(lblTitulo2);
+
+        // --------------------------------------------------------------------------------------------------//
+
+        //Instancias de la cantidad de lanzaminetos y cenas
+        JLabel lblLanzamientos = new JLabel();
+        lblLanzamientos.setBounds(50 + 2*imagen.getIconWidth(),40,100,100); //Coordenadas ancho y largo del objetos, debajo del titulo de lanzamientos, entonces la x es igual que la del titulo de lanzamiento, ancho ajustado segun la necesidad.
+
+        //Cambiar el color del fondo
+        lblLanzamientos.setBackground(new Color(0,0,0));//Las 3 coordenadas hacen referencia a los 3 pixeles que se necesitan para definir un color "0,0,0" significa fondo negro
+
+        //Cambiar el color de la letra
+        lblLanzamientos.setForeground(new Color(51, 255, 0));//(51, 255, 0) forman un verde chillon
+
+        //Cambiar tipo de letra
+        lblLanzamientos.setFont(new Font("Tahoma",1,72));//Estilo, negrita y tamaño
+
+        //Mostrar el texto inicial que quiero que aparezca al iniciar el juego, o sea, cero.
+        lblLanzamientos.setText("0");
+
+        //Alineacion del texto a la derecha
+        lblLanzamientos.setHorizontalAlignment(SwingConstants.RIGHT);
+
+        //Colocar el texto opaco
+        lblLanzamientos.setOpaque(true); //Para que el fondo del contador aparezca negro
+
+        getContentPane().add(lblLanzamientos);
+
+
+
+        JLabel lblCenas = new JLabel();
+        lblCenas.setBounds(160 + 2*imagen.getIconWidth(),40,100,100);
+        lblCenas.setBackground(new Color(0,0,0));
+        lblCenas.setForeground(new Color(51, 255, 0));
+        lblCenas.setFont(new Font("Tahoma",1,72));
+        lblCenas.setText("0");
+        lblCenas.setHorizontalAlignment(SwingConstants.RIGHT);
+        lblCenas.setOpaque(true);
+        getContentPane().add(lblCenas);
+        
+
+        // --------------------------------------------------------------------------------------------------//
+
+        //Agregar los botones
+        JButton btnIniciar = new JButton("Iniciar");
+        btnIniciar.setBounds(10,15 + imagen.getIconHeight(),100,25);
+        getContentPane().add(btnIniciar);
+
+        JButton btnLanzar = new JButton("Lanzar");
+        btnLanzar.setBounds(10,45 + imagen.getIconHeight(),100,25);
+        getContentPane().add(btnLanzar);
+
     }
 
 }
